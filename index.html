@@ -14,7 +14,7 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGASI ATAS (LOGO SAJA) --- */
+        /* --- NAVIGASI --- */
         nav {
             padding: 20px 50px;
             background: rgba(15, 15, 26, 0.95);
@@ -27,51 +27,35 @@
             text-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
         }
 
-        /* --- HERO SECTION (TAMPILAN UTAMA) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh; /* Full layar */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
             background: radial-gradient(circle at center, #1a1a3d 0%, #0f0f1a 80%);
-            padding-top: 80px; /* Jarak dari nav */
+            padding-top: 80px;
         }
+        .hero-layout { display: flex; width: 90%; max-width: 1200px; gap: 50px; align-items: center; }
 
-        /* Container Pembagi Layout (Kiri & Tengah) */
-        .hero-layout {
-            display: flex; width: 90%; max-width: 1200px; gap: 50px; align-items: center;
-        }
-
-        /* BAGIAN KIRI: MENU */
+        /* MENU KIRI */
         .left-menu {
             flex: 1; display: flex; flex-direction: column; gap: 20px;
             border-right: 1px solid #2a2a40; padding-right: 30px;
         }
-
         .menu-btn {
             background: rgba(255, 255, 255, 0.05); color: white; padding: 20px;
             text-decoration: none; border-left: 4px solid #8a2be2;
             font-weight: bold; font-size: 16px; transition: 0.3s;
             display: flex; align-items: center; justify-content: space-between;
         }
-        .menu-btn:hover {
-            background: linear-gradient(90deg, #8a2be2, transparent);
-            padding-left: 30px; /* Efek geser */
-        }
-
-        /* VARIASI WARNA TOMBOL */
+        .menu-btn:hover { background: linear-gradient(90deg, #8a2be2, transparent); padding-left: 30px; }
         .discord-btn { border-color: #5865F2; }
         .discord-btn:hover { background: linear-gradient(90deg, #5865F2, transparent); }
-        
-        /* Style Tombol Store (Baru) */
         .store-btn { border-color: #00d4ff; } 
         .store-btn:hover { background: linear-gradient(90deg, #00d4ff, transparent); }
 
-        /* BAGIAN TENGAH: SEJARAH */
+        /* KONTEN TENGAH */
         .center-content { flex: 2; }
         .center-content h1 { font-size: 50px; margin-bottom: 10px; line-height: 1.2; }
         .center-content span { color: #8a2be2; }
-        
         .history-box {
             background: rgba(22, 22, 37, 0.8); padding: 30px; border-radius: 15px;
             border: 1px solid #2a2a40; margin-top: 20px;
@@ -79,23 +63,26 @@
         .history-box h3 { color: #00d4ff; margin-top: 0; }
         .history-box p { color: #b0b0c0; line-height: 1.6; }
 
-        /* --- STORE SECTION (BARU DITAMBAHKAN) --- */
-        .store-section { 
-            padding: 80px 20px; background: #0c0c14; border-top: 1px solid #2a2a40; text-align: center; 
-        }
-        .store-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; margin-top: 40px; }
+        /* --- SECTIONS (STORE, SHOWCASE, PROJECTS) --- */
+        .section-box { padding: 80px 20px; border-top: 1px solid #2a2a40; text-align: center; }
+        .bg-dark { background: #0c0c14; }
         
-        .product-card {
+        .grid-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; margin-top: 40px; }
+        
+        /* Product Card Style */
+        .card {
             background: #161625; width: 280px; border-radius: 15px; overflow: hidden;
-            border: 1px solid #2a2a40; transition: 0.3s; position: relative; text-align: left;
+            border: 1px solid #2a2a40; transition: 0.3s; position: relative; text-align: left; cursor: pointer;
         }
-        .product-card:hover { transform: translateY(-5px); border-color: #00d4ff; }
+        .card:hover { transform: translateY(-5px); border-color: #00d4ff; }
         
-        .prod-img { width: 100%; height: 160px; background: #2a2a40; object-fit: cover; }
-        .prod-info { padding: 20px; }
-        .prod-title { font-size: 18px; font-weight: bold; color: white; margin: 0 0 5px; }
-        .prod-desc { font-size: 13px; color: #888; margin-bottom: 15px; }
-        
+        .card-img { width: 100%; height: 160px; background: #2a2a40; object-fit: cover; }
+        .card-info { padding: 20px; }
+        .card-title { font-size: 18px; font-weight: bold; color: white; margin: 0 0 5px; }
+        .card-desc { font-size: 13px; color: #888; margin-bottom: 15px; }
+        .hint { font-size: 12px; color: #00d4ff; margin-top: 10px; font-style: italic; }
+
+        /* Price tag styling */
         .price-row { display: flex; justify-content: space-between; align-items: center; }
         .price { font-size: 18px; color: #00d4ff; font-weight: bold; }
         .buy-btn {
@@ -104,19 +91,7 @@
         }
         .buy-btn:hover { background: #fff; color: #8a2be2; }
 
-        /* --- PROJECTS SECTION --- */
-        .projects { padding: 100px 20px; text-align: center; border-top: 1px solid #2a2a40; }
-        .project-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 40px; }
-        .card {
-            background: #161625; padding: 30px; border-radius: 15px;
-            border: 1px solid #2a2a40; width: 280px; transition: 0.3s; cursor: pointer;
-        }
-        .card:hover { border-color: #00d4ff; transform: translateY(-10px); }
-        .card h3 { color: #8a2be2; }
-        .hint { font-size: 12px; color: #555; margin-top: 15px; }
-
         /* --- DEVELOPERS SECTION --- */
-        .developers { padding: 80px 20px; text-align: center; background: #0a0a12; }
         .dev-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px;}
         .dev-card {
             background: linear-gradient(135deg, #1a1a2e, #16213e);
@@ -127,23 +102,47 @@
             display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold;
         }
 
-        /* --- POPUP MODAL --- */
+        /* --- GALERI MODAL (SLIDER SYSTEM) --- */
         .modal {
             display: none; position: fixed; z-index: 9999;
             left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9);
+            background-color: rgba(0,0,0,0.95);
             justify-content: center; align-items: center; flex-direction: column;
         }
-        .modal-content { max-width: 90%; max-height: 80%; border: 2px solid #8a2be2; border-radius: 10px;}
-        .modal-video { width: 80%; height: 450px; border: 2px solid #8a2be2; border-radius: 10px; display: none; }
-        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
-        .modal-caption { margin-top: 15px; color: #fff; font-size: 18px; }
+        
+        /* Container Media */
+        .modal-media-container {
+            position: relative;
+            width: 80%; max-width: 900px; height: 500px;
+            display: flex; justify-content: center; align-items: center;
+        }
 
-        /* RESPONSIVE (HP) */
+        .modal-content, .modal-video {
+            max-width: 100%; max-height: 100%;
+            border: 2px solid #8a2be2; border-radius: 10px;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+        }
+
+        /* Tombol Navigasi (Next/Prev) */
+        .prev, .next {
+            cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px;
+            margin-top: -50px; color: white; font-weight: bold; font-size: 30px;
+            transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .next { right: -60px; border-radius: 3px 0 0 3px; }
+        .prev { left: -60px; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: #8a2be2; }
+
+        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+        .modal-caption { margin-top: 15px; color: #fff; font-size: 18px; text-align: center; }
+        .numbertext { color: #f2f2f2; font-size: 12px; position: absolute; top: -25px; left: 0; }
+
         @media screen and (max-width: 800px) {
-            .hero-layout { flex-direction: column-reverse; /* Menu pindah ke bawah di HP */ }
+            .hero-layout { flex-direction: column-reverse; }
             .left-menu { width: 100%; border-right: none; }
-            .center-content h1 { font-size: 32px; text-align: center; }
+            .modal-media-container { width: 95%; height: 300px; }
+            .prev { left: 0; } .next { right: 0; } /* Tombol nav masuk ke dalam di HP */
         }
     </style>
 </head>
@@ -155,84 +154,47 @@
 
     <section class="hero">
         <div class="hero-layout">
-            
             <div class="left-menu">
-                <a href="#store" class="menu-btn store-btn">
-                    1. Exora Store (Produk) <span>🛒</span>
-                </a>
-
-                <a href="#projects" class="menu-btn">
-                    2. Full Portfolio <span>➜</span>
-                </a>
-                
-                <a href="https://discord.gg/FEC5JbvRM2" target="_blank" class="menu-btn discord-btn">
-                    3. Join Discord Server <span>✈</span>
-                </a>
-                
-                <a href="#developers" class="menu-btn">
-                    4. Developer Team <span>★</span>
-                </a>
+                <a href="#store" class="menu-btn store-btn">1. Exora Store (Produk) <span>🛒</span></a>
+                <a href="#showcase" class="menu-btn">2. Product Showcase <span>🎥</span></a>
+                <a href="#projects" class="menu-btn">3. Full Portfolio (Jasa) <span>➜</span></a>
+                <a href="https://discord.gg/FEC5JbvRM2" target="_blank" class="menu-btn discord-btn">4. Join Discord <span>✈</span></a>
+                <a href="#developers" class="menu-btn">5. Developers <span>★</span></a>
             </div>
-
             <div class="center-content">
                 <h1>Welcome to <span>EXORA</span></h1>
-                
                 <div class="history-box">
                     <h3>📜 Sejarah Singkat</h3>
-                    <p>
-                        Exora Hub didirikan pertama kali pada tahun 2024 dengan nama DJ HUB.
-                    Setelah Melewati perjuangan panjang ditahun 2025, akhirnya kami memutuskan rebranding pada januari 2026
-                    dengan nama awal DJ HUB menjadi Exora Hub yang menjual jasa dan product untuk game anda
-                    jasa yang kami tawarkan adalah jasa script,jasa design ui,jasa building
-                    dan berbagai product mobil slot.
-                    kami memiliki motto #WEHEREANDWEREADY dengan arti kami disini dan siap membantu developer untuk berkembang.
-                    </p>
-                    <p>
-                        Tujuan kami adalah, menyediakan jasa atau product siap pakai untuk memudahkan developer,
-                        dalam mengembangkan gamenya.
-                        Dan agar developer tidak lelah membuat system yang sesuai dengan gamenya
-                        kami membuat jasa custom script agar mempermudah
-                    </p>
+                    <p>Exora Hub didirikan pertama kali pada tahun 2024 dengan nama DJ HUB.Setelah perjalanan panjang di 2025
+                        Pada akhirnya kami memutuskan Rebranding menjadi Exora Hub pada Januari 2026.
+                        Kami menyediakan jasa scripting, building, UI design dan berbagai product siap pakai seperti mobil
+                        dengan motto #WEHEREANDWEREADY yang artinya kami disini dan kami siap membantu developer kecil berkembang bersama kami
+                        .</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <section class="store-section" id="store">
+    <section class="section-box bg-dark" id="store">
         <h2>Exora Store</h2>
-        <p style="color: #aaa;">Produk script & aset siap pakai untuk game kamu.</p>
-        
-        <div class="store-grid">
-            <div class="product-card">
-                <img src="ToyotaCalya.png" class="prod-img">
-                <div class="prod-info">
-                    <div class="prod-title">2021 Toyota Calya Facelift</div>
-                    <div class="prod-desc">2021 Toyota Calya.</div>
+        <p style="color: #aaa;">Produk script & aset siap pakai.</p>
+        <div class="grid-container">
+            <div class="card">
+                <img src="ToyotaCalya.png" class="card-img">
+                <div class="card-info">
+                    <div class="card-title">2021 Toyota Calya</div>
+                    <div class="card-desc">Full details interior & exterior.</div>
                     <div class="price-row">
                         <div class="price">Rp 9k</div>
                         <a href="#" class="buy-btn">Beli</a>
                     </div>
                 </div>
             </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/400x250?text=Cafe+Map" class="prod-img">
-                <div class="prod-info">
-                    <div class="prod-title">Modern Cafe Map</div>
-                    <div class="prod-desc">Map cafe aesthetic low-poly roleplay.</div>
-                    <div class="price-row">
-                        <div class="price">Rp 35k</div>
-                        <a href="#" class="buy-btn">Beli</a>
-                    </div>
-                </div>
-            </div>
-            
-             <div class="product-card">
-                <img src="https://via.placeholder.com/400x250?text=Car+Script" class="prod-img">
-                <div class="prod-info">
-                    <div class="prod-title">Basic Car Chassis</div>
-                    <div class="prod-desc">Script dasar mobil fisik realistis.</div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x250?text=Car+Script" class="card-img">
+                <div class="card-info">
+                    <div class="card-title">Basic Chassis</div>
+                    <div class="card-desc">Script mobil fisik realistis.</div>
                     <div class="price-row">
                         <div class="price">Free</div>
                         <a href="#" class="buy-btn">Ambil</a>
@@ -242,85 +204,135 @@
         </div>
     </section>
 
-    <section class="projects" id="projects">
-        <h2>Portfolio Lengkap</h2>
-        <p>Kumpulan hasil karya Scripting, Building, dan UI kami.</p>
-        
-        <div class="project-grid">
-            <div class="card" onclick="openModal('Portofolio.mp4', 'Scripting System Showcase', 'video')">
-                <h3>Roblox Scripting</h3>
-                <p>Klik untuk menonton video showcase.</p>
-                <div class="hint">▶ Play Video</div>
+    <section class="section-box" id="showcase">
+        <h2>Product Showcase</h2>
+        <p>Lihat detail produk kami (Klik untuk melihat galeri foto/video).</p>
+        <div class="grid-container">
+            
+            <div class="card" onclick="openGallery('calya_showcase')">
+                <div style="padding: 20px; text-align:center;">
+                    <h3 style="color:#8a2be2">📸 Toyota Calya Gallery</h3>
+                    <p style="color:#aaa">Klik untuk lihat 5+ Foto & Video detail mobil.</p>
+                    <div class="hint">Buka Galeri</div>
+                </div>
             </div>
-            <div class="card" onclick="openModal('image.png', 'Map Realistic', 'image')">
-                <h3>Map Building</h3>
-                <p>Desain map realistis high-detail.</p>
-                <div class="hint">🖼 Lihat Foto</div>
+
+             <div class="card" onclick="openGallery('map_showcase')">
+                <div style="padding: 20px; text-align:center;">
+                    <h3 style="color:#00d4ff">🏰 Map Details</h3>
+                    <p style="color:#aaa">Kumpulan foto detail map buatan kami.</p>
+                    <div class="hint">Buka Galeri</div>
+                </div>
             </div>
-            <div class="card" onclick="openModal('https://via.placeholder.com/800x450?text=UI+Portfolio', 'UI Design Modern', 'image')">
-                <h3>UI Design</h3>
-                <p>Tampilan antarmuka game modern.</p>
-                <div class="hint">🖼 Lihat Foto</div>
+
+        </div>
+    </section>
+
+    <section class="section-box bg-dark" id="projects">
+        <h2>Portfolio Jasa</h2>
+        <div class="grid-container">
+            <div class="card" onclick="openGallery('portfolio_script')">
+                <div class="card-info">
+                    <div class="card-title">Scripting Portfolio</div>
+                    <div class="card-desc">Kumpulan video sistem yang pernah kami buat.</div>
+                    <div class="hint">▶ Lihat Video</div>
+                </div>
+            </div>
+            <div class="card" onclick="openGallery('portfolio_build')">
+                <div class="card-info">
+                    <div class="card-title">Building Portfolio</div>
+                    <div class="card-desc">Foto-foto hasil build map klien.</div>
+                    <div class="hint">🖼 Lihat Foto</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="developers" id="developers">
-        <h2 style="color: white;">Meet Our Developers</h2>
+    <section class="section-box" id="developers">
+        <h2>Meet Our Developers</h2>
         <div class="dev-grid">
-            <div class="dev-card">
-                <div class="dev-avatar">RA</div>
-                <h3 style="color:#8a2be2">Rau Lead</h3>
-                <p style="color:#aaa; font-size:14px;">Founder & Scripter</p>
-            </div>
-            <div class="dev-card">
-                <div class="dev-avatar">EXO</div>
-                <h3 style="color:#00d4ff">Perkedel</h3>
-                <p style="color:#aaa; font-size:14px;">Co-Founder & Builder</p>
-            </div>
-             <div class="dev-card">
-                <div class="dev-avatar">?</div>
-                <h3 style="color:#fff">Hiring...</h3>
-                <p style="color:#aaa; font-size:14px;">Join Us?</p>
-            </div>
+            <div class="dev-card"><div class="dev-avatar">R</div><h3>Rau Lead</h3><p>Founder</p></div>
+            <div class="dev-card"><div class="dev-avatar">P</div><h3>Perkedel</h3><p>Co-Founder</p></div>
         </div>
     </section>
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
-        <iframe class="modal-video" id="vid01" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <div class="modal-media-container">
+            <div class="numbertext" id="slide-counter">1 / 3</div>
+            
+            <img class="modal-content" id="img-display" style="display:none;">
+            
+            <iframe class="modal-video" id="vid-display" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none; width:100%; height:100%"></iframe>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+        
         <div class="modal-caption" id="caption"></div>
     </div>
 
     <script>
-        function openModal(src, text, type) {
-            var modal = document.getElementById("myModal");
-            var imgView = document.getElementById("img01");
-            var vidView = document.getElementById("vid01");
-            var caption = document.getElementById("caption");
-            modal.style.display = "flex";
-            caption.innerHTML = text;
-            if (type === 'video') {
-                imgView.style.display = "none";
-                vidView.style.display = "block";
-                vidView.src = src;
-            } else {
-                vidView.style.display = "none";
-                imgView.style.display = "block";
-                imgView.src = src;
-            }
-        }
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            var vidView = document.getElementById("vid01");
-            modal.style.display = "none";
-            vidView.src = "";
-        }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById("myModal")) closeModal();
-        }
-    </script>
+        // --- DATASET FOTO/VIDEO ---
+        // ISINYA DISINI BANG! GANTI LINKNYA SESUAI KEBUTUHAN
+        const galleries = {
+            
+            // 1. Galeri Toyota Calya
+            'calya_showcase': [
+                { type: 'image', src: 'ToyotaCalya.png', text: 'Tampilan Depan Calya' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Calya+Samping', text: 'Tampilan Samping' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Calya+Belakang', text: 'Tampilan Belakang' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Calya+Interior', text: 'Detail Interior Dashboard' },
+                { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', text: 'Video Review Singkat' }
+            ],
 
-</body>
-</html>
+            // 2. Galeri Map
+            'map_showcase': [
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Overview', text: 'Pemandangan Map dari Atas' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Street', text: 'Detail Jalanan' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Building', text: 'Gedung Utama' }
+            ],
+
+            // 3. Portfolio Scripting
+            'portfolio_script': [
+                { type: 'video', src: 'Portofolio.mp4', text: 'Sistem Admin V2' },
+                { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', text: 'Sistem Toko' }
+            ],
+
+            // 4. Portfolio Building
+            'portfolio_build': [
+                { type: 'image', src: 'image.png', text: 'Realistic Forest Map' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=City+Map', text: 'Cyberpunk City' }
+            ]
+        };
+
+        // --- LOGIKA PROGRAM (JANGAN DIUBAH KECUALI PAHAM) ---
+        let currentGalleryID = '';
+        let currentIndex = 0;
+
+        function openGallery(galleryID) {
+            if (!galleries[galleryID]) return alert("Galeri belum diisi!");
+            
+            currentGalleryID = galleryID;
+            currentIndex = 0; // Mulai dari foto pertama
+            
+            document.getElementById("myModal").style.display = "flex";
+            showSlide(currentIndex);
+        }
+
+        function showSlide(index) {
+            const mediaList = galleries[currentGalleryID];
+            
+            // Loop slide jika mentok
+            if (index >= mediaList.length) currentIndex = 0;
+            if (index < 0) currentIndex = mediaList.length - 1;
+
+            const item = mediaList[currentIndex];
+            const imgView = document.getElementById("img-display");
+            const vidView = document.getElementById("vid-display");
+            const caption = document.getElementById("caption");
+            const counter = document.getElementById("slide-counter");
+
+            // Reset Tampilan
+            imgView.style.display = "none
