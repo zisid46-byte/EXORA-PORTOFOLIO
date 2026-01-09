@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exora Hub | Portfolio</title>
+    <title>Exora Hub | Professional Team</title>
     <style>
-        /* --- CSS TAMPILAN --- */
+        /* --- CSS RESET & BASE --- */
         html { scroll-behavior: smooth; }
         body {
             margin: 0; padding: 0;
@@ -13,14 +13,13 @@
             background-color: #0f0f1a; color: #ffffff;
             overflow-x: hidden;
         }
-        
-        /* Navigasi */
+
+        /* --- NAVIGASI ATAS (LOGO SAJA) --- */
         nav {
             padding: 20px 50px;
-            background: rgba(20, 20, 40, 0.95);
+            background: rgba(15, 15, 26, 0.95);
             position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid #2a2a40;
-            display: flex; align-items: center;
         }
         .logo {
             font-size: 24px; font-weight: bold; color: #8a2be2;
@@ -28,25 +27,77 @@
             text-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION (TAMPILAN UTAMA) --- */
         .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
+            min-height: 100vh; /* Full layar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: radial-gradient(circle at center, #1a1a3d 0%, #0f0f1a 80%);
+            padding-top: 80px; /* Jarak dari nav */
         }
-        .hero h1 { font-size: 48px; margin-bottom: 10px; }
-        .hero span { color: #8a2be2; }
-        .hero p { color: #b0b0c0; max-width: 600px; margin-bottom: 30px; font-size: 18px; }
-        
-        .btn {
-            padding: 12px 30px; background: linear-gradient(45deg, #8a2be2, #00d4ff);
-            border: none; color: white; font-size: 16px; font-weight: bold;
-            border-radius: 5px; text-decoration: none; cursor: pointer; transition: 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(138, 43, 226, 0.6); }
 
-        /* Projects Section */
-        .projects { padding: 100px 20px; text-align: center; }
+        /* Container Pembagi Layout (Kiri & Tengah) */
+        .hero-layout {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* BAGIAN KIRI: MENU */
+        .left-menu {
+            flex: 1; /* Lebar 1 bagian */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-right: 1px solid #2a2a40; /* Garis pemisah */
+            padding-right: 30px;
+        }
+
+        .menu-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            padding: 20px;
+            text-decoration: none;
+            border-left: 4px solid #8a2be2; /* Garis ungu di kiri tombol */
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+
+        .menu-btn:hover {
+            background: linear-gradient(90deg, #8a2be2, transparent);
+            padding-left: 30px; /* Efek geser */
+        }
+
+        .discord-btn { border-color: #5865F2; } /* Warna Discord */
+        .discord-btn:hover { background: linear-gradient(90deg, #5865F2, transparent); }
+
+        /* BAGIAN TENGAH: SEJARAH */
+        .center-content {
+            flex: 2; /* Lebar 2 bagian (lebih luas) */
+        }
+
+        .center-content h1 {
+            font-size: 50px; margin-bottom: 10px; line-height: 1.2;
+        }
+        .center-content span { color: #8a2be2; }
+        
+        .history-box {
+            background: rgba(22, 22, 37, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #2a2a40;
+            margin-top: 20px;
+        }
+        .history-box h3 { color: #00d4ff; margin-top: 0; }
+        .history-box p { color: #b0b0c0; line-height: 1.6; }
+
+        /* --- PROJECTS SECTION --- */
+        .projects { padding: 100px 20px; text-align: center; border-top: 1px solid #2a2a40; }
         .project-grid {
             display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 40px;
         }
@@ -54,45 +105,43 @@
             background: #161625; padding: 30px; border-radius: 15px;
             border: 1px solid #2a2a40; width: 280px; transition: 0.3s; cursor: pointer;
         }
-        .card:hover {
-            border-color: #00d4ff; transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
-        }
+        .card:hover { border-color: #00d4ff; transform: translateY(-10px); }
         .card h3 { color: #8a2be2; }
-        .card p { color: #b0b0c0; font-size: 14px; }
-        .hint { font-size: 12px; color: #555; margin-top: 15px; font-style: italic; }
+        .hint { font-size: 12px; color: #555; margin-top: 15px; }
 
-        /* --- POPUP MODAL (PENTING) --- */
+        /* --- DEVELOPERS SECTION (BARU) --- */
+        .developers {
+            padding: 80px 20px;
+            text-align: center;
+            background: #0a0a12;
+        }
+        .dev-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px;}
+        .dev-card {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 20px; width: 200px; border-radius: 10px; border: 1px solid #333;
+        }
+        .dev-avatar {
+            width: 80px; height: 80px; background: #8a2be2; border-radius: 50%; margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold;
+        }
+
+        /* --- POPUP MODAL --- */
         .modal {
             display: none; position: fixed; z-index: 9999;
             left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.9);
             justify-content: center; align-items: center; flex-direction: column;
         }
-        
-        .modal-content {
-            max-width: 90%; max-height: 80%;
-            border: 2px solid #8a2be2; border-radius: 10px;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
-        }
-
-        /* Khusus Video Agar Besar */
-        .modal-video {
-            width: 80%; height: 450px;
-            border: 2px solid #8a2be2; border-radius: 10px;
-            display: none; /* Sembunyi default */
-        }
-
-        .close {
-            position: absolute; top: 20px; right: 35px;
-            color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer;
-        }
+        .modal-content { max-width: 90%; max-height: 80%; border: 2px solid #8a2be2; border-radius: 10px;}
+        .modal-video { width: 80%; height: 450px; border: 2px solid #8a2be2; border-radius: 10px; display: none; }
+        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
         .modal-caption { margin-top: 15px; color: #fff; font-size: 18px; }
 
-        /* Responsif HP */
-        @media screen and (max-width: 600px) {
-            .modal-video { width: 95%; height: 250px; }
-            .hero h1 { font-size: 32px; }
+        /* RESPONSIVE (HP) */
+        @media screen and (max-width: 800px) {
+            .hero-layout { flex-direction: column-reverse; /* Menu pindah ke bawah di HP */ }
+            .left-menu { width: 100%; border-right: none; }
+            .center-content h1 { font-size: 32px; text-align: center; }
         }
     </style>
 </head>
@@ -103,87 +152,63 @@
     </nav>
 
     <section class="hero">
-        <h1>Welcome to <span>EXORA</span></h1>
-        <p>Jasa Scripting Roblox, Building, dan Desain UI .</p>
-        <a href="#projects" class="btn">Our Portofolio</a>
-    </section>
-
-    <section class="projects" id="projects">
-        <h2>My Projects</h2>
-        <p>Klik kartu di bawah untuk melihat detail.</p>
-        
-        <div class="project-grid">
+        <div class="hero-layout">
             
-            <div class="card" onclick="openModal('Portofolio.mp4', 'Showcase Scripting System', 'video')">
-                <h3>Roblox Scripting</h3>
-                <p>Klik untuk menonton video showcase script.</p>
-                <div class="hint">▶ Klik untuk Play Video</div>
+            <div class="left-menu">
+                <a href="#projects" class="menu-btn">
+                    1. Full Portfolio (Foto & Video) <span>➜</span>
+                </a>
+                <a href="https://discord.gg/CONTOH-LINK" target="_blank" class="menu-btn discord-btn">
+                    2. Join Discord Server <span>✈</span>
+                </a>
+                <a href="#developers" class="menu-btn">
+                    3. Developer Team <span>★</span>
+                </a>
             </div>
 
-            <div class="card" onclick="openModal('image.png', 'Map Realistic', 'image')">
-                <h3>Map Building</h3>
-                <p>Desain map realistis atau low-poly.</p>
-                <div class="hint">🖼 Klik untuk lihat gambar</div>
-            </div>
-
-            <div class="card" onclick="openModal('https://via.placeholder.com/800x450?text=UI+Design+Image', 'Modern UI Design', 'image')">
-                <h3>UI Design</h3>
-                <p>Antarmuka pengguna modern & bersih.</p>
-                <div class="hint">🖼 Klik untuk lihat gambar</div>
+            <div class="center-content">
+                <h1>Welcome to <span>EXORA</span></h1>
+                
+                <div class="history-box">
+                    <h3>📜 Sejarah Singkat</h3>
+                    <p>
+                        Exora Hub didirikan ditahun 2024 dengan nama DJ HUB.
+                    Setelah melewati perjuangan 2025 maka DJ HUB Rebranding menjadi exora hub.
+                        difokuskan menjual jasa script dan mobil dengan harga yang murah
+                        kami siap membantu developer game roblox kecil agar bisa berkembang dengan product yang kami tawarkan
+                        dengan motto #WEHEREANDWEREADY yang artinya kami disini dan kami siap membantu developer game roblox
+                        
+                    </p>
+                    <p>
+                        Tujuan kami adalah, menyediakan jasa atau product siap pakai untuk customer.
+                        product yang kami jual berupa mobil,motor,script. Untuk menunjang developer game roblox
+                        kami menyediakan jasa scripting dan build untuk memudahkan developer roblox
+                    </p>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
+    <section class="projects" id="projects">
+        <h2>Portfolio Lengkap</h2>
+        <p>Kumpulan hasil karya Scripting, Building, dan UI kami.</p>
         
-        <img class="modal-content" id="img01">
-        
-        <iframe class="modal-video" id="vid01" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <div class="modal-caption" id="caption"></div>
-    </div>
-
-    <script>
-        function openModal(src, text, type) {
-            var modal = document.getElementById("myModal");
-            var imgView = document.getElementById("img01");
-            var vidView = document.getElementById("vid01");
-            var caption = document.getElementById("caption");
-
-            modal.style.display = "flex";
-            caption.innerHTML = text;
-
-            if (type === 'video') {
-                // Tampilkan Video, Sembunyikan Gambar
-                imgView.style.display = "none";
-                vidView.style.display = "block";
-                vidView.src = src; // Masukkan link video
-            } else {
-                // Tampilkan Gambar, Sembunyikan Video
-                vidView.style.display = "none";
-                imgView.style.display = "block";
-                imgView.src = src; // Masukkan link gambar
-            }
-        }
-
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            var vidView = document.getElementById("vid01");
-            
-            modal.style.display = "none";
-            vidView.src = ""; // Matikan video agar suara stop
-        }
-
-        // Tutup kalau klik background hitam
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
-
-</body>
-</html>
+        <div class="project-grid">
+            <div class="card" onclick="openModal('Portofolio.mp4', 'Scripting System Showcase', 'video')">
+                <h3>Roblox Scripting</h3>
+                <p>Klik untuk menonton video showcase.</p>
+                <div class="hint">▶ Play Video</div>
+            </div>
+            <div class="card" onclick="openModal('image.png', 'Map Realistic', 'image')">
+                <h3>Map Building</h3>
+                <p>Desain map realistis high-detail.</p>
+                <div class="hint">🖼 Lihat Foto</div>
+            </div>
+            <div class="card" onclick="openModal('https://via.placeholder.com/800x450?text=UI+Portfolio', 'UI Design Modern', 'image')">
+                <h3>UI Design</h3>
+                <p>Tampilan antarmuka game modern.</p>
+                <div class="hint">🖼 Lihat Foto</div>
+            </div>
+        </div>
+    </section>
