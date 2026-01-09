@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exora Hub | Professional Team</title>
+    <title>Exora Hub | Official Store</title>
     <style>
         /* --- CSS RESET & BASE --- */
         html { scroll-behavior: smooth; }
@@ -14,7 +14,7 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGASI --- */
+        /* --- NAVIGASI ATAS --- */
         nav {
             padding: 20px 50px;
             background: rgba(15, 15, 26, 0.95);
@@ -27,49 +27,78 @@
             text-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (LAYOUT 3 KOLOM) --- */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             background: radial-gradient(circle at center, #1a1a3d 0%, #0f0f1a 80%);
-            padding-top: 80px;
+            padding-top: 100px; padding-bottom: 50px;
         }
-        .hero-layout { display: flex; width: 90%; max-width: 1200px; gap: 50px; align-items: center; }
+        
+        .hero-layout { 
+            display: flex; width: 95%; max-width: 1400px; gap: 40px; align-items: flex-start; 
+        }
 
-        /* MENU KIRI */
+        /* 1. BAGIAN KIRI: MENU */
         .left-menu {
-            flex: 1; display: flex; flex-direction: column; gap: 20px;
-            border-right: 1px solid #2a2a40; padding-right: 30px;
+            flex: 1; display: flex; flex-direction: column; gap: 15px;
+            border-right: 1px solid #2a2a40; padding-right: 20px;
+            min-width: 250px;
         }
         .menu-btn {
-            background: rgba(255, 255, 255, 0.05); color: white; padding: 20px;
+            background: rgba(255, 255, 255, 0.05); color: white; padding: 18px;
             text-decoration: none; border-left: 4px solid #8a2be2;
-            font-weight: bold; font-size: 16px; transition: 0.3s;
+            font-weight: bold; font-size: 15px; transition: 0.3s;
             display: flex; align-items: center; justify-content: space-between;
         }
-        .menu-btn:hover { background: linear-gradient(90deg, #8a2be2, transparent); padding-left: 30px; }
+        .menu-btn:hover { background: linear-gradient(90deg, #8a2be2, transparent); padding-left: 25px; }
+
         .discord-btn { border-color: #5865F2; }
         .discord-btn:hover { background: linear-gradient(90deg, #5865F2, transparent); }
         .store-btn { border-color: #00d4ff; } 
         .store-btn:hover { background: linear-gradient(90deg, #00d4ff, transparent); }
 
-        /* KONTEN TENGAH */
+        /* 2. BAGIAN TENGAH: SEJARAH */
         .center-content { flex: 2; }
-        .center-content h1 { font-size: 50px; margin-bottom: 10px; line-height: 1.2; }
+        .center-content h1 { font-size: 48px; margin-bottom: 10px; line-height: 1.1; }
         .center-content span { color: #8a2be2; }
+        
         .history-box {
-            background: rgba(22, 22, 37, 0.8); padding: 30px; border-radius: 15px;
+            background: rgba(22, 22, 37, 0.8); padding: 25px; border-radius: 15px;
             border: 1px solid #2a2a40; margin-top: 20px;
         }
         .history-box h3 { color: #00d4ff; margin-top: 0; }
-        .history-box p { color: #b0b0c0; line-height: 1.6; }
+        .history-box p { color: #b0b0c0; line-height: 1.6; font-size: 15px; }
 
-        /* --- SECTIONS (STORE, SHOWCASE, PROJECTS) --- */
+        /* 3. BAGIAN KANAN: ONGOING PROJECTS */
+        .right-content {
+            flex: 1; min-width: 280px;
+            display: flex; flex-direction: column; gap: 15px;
+            border-left: 1px solid #2a2a40; padding-left: 20px;
+        }
+        .ongoing-header { font-weight: bold; color: #fff; margin-bottom: 5px; display: flex; justify-content: space-between; }
+        .ongoing-card {
+            background: #222233; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: default;
+        }
+        .og-img { width: 100%; height: 140px; object-fit: cover; }
+        .og-info { padding: 12px; }
+        .og-tags { display: flex; gap: 5px; margin-bottom: 8px; }
+        .tag { width: 40px; height: 6px; border-radius: 3px; }
+        .tag-green { background: #61bd4f; }
+        .tag-yellow { background: #f2d600; }
+        .tag-orange { background: #ff9f1a; }
+        .tag-pink { background: #ff78cb; }
+        .og-title { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 10px; line-height: 1.4; }
+        .og-footer { display: flex; gap: 15px; color: #777; font-size: 12px; align-items: center; }
+        .og-icon { display: flex; align-items: center; gap: 4px; }
+
+
+        /* --- STORE & SHOWCASE & PORTFOLIO --- */
         .section-box { padding: 80px 20px; border-top: 1px solid #2a2a40; text-align: center; }
         .bg-dark { background: #0c0c14; }
         
         .grid-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; margin-top: 40px; }
         
-        /* Product Card Style */
         .card {
             background: #161625; width: 280px; border-radius: 15px; overflow: hidden;
             border: 1px solid #2a2a40; transition: 0.3s; position: relative; text-align: left; cursor: pointer;
@@ -82,9 +111,10 @@
         .card-desc { font-size: 13px; color: #888; margin-bottom: 15px; }
         .hint { font-size: 12px; color: #00d4ff; margin-top: 10px; font-style: italic; }
 
-        /* Price tag styling */
         .price-row { display: flex; justify-content: space-between; align-items: center; }
         .price { font-size: 18px; color: #00d4ff; font-weight: bold; }
+        
+        /* TOMBOL BELI */
         .buy-btn {
             padding: 8px 20px; background: #8a2be2; color: white; text-decoration: none;
             border-radius: 5px; font-size: 14px; font-weight: bold; transition: 0.2s;
@@ -96,53 +126,45 @@
         .dev-card {
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             padding: 20px; width: 200px; border-radius: 10px; border: 1px solid #333;
+            text-align: center;
         }
         .dev-avatar {
             width: 80px; height: 80px; background: #8a2be2; border-radius: 50%; margin: 0 auto 15px;
             display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold;
         }
 
-        /* --- GALERI MODAL (SLIDER SYSTEM) --- */
+        /* --- GALERI MODAL --- */
         .modal {
             display: none; position: fixed; z-index: 9999;
             left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95);
             justify-content: center; align-items: center; flex-direction: column;
         }
-        
-        /* Container Media */
         .modal-media-container {
-            position: relative;
-            width: 80%; max-width: 900px; height: 500px;
+            position: relative; width: 80%; max-width: 900px; height: 500px;
             display: flex; justify-content: center; align-items: center;
         }
-
         .modal-content, .modal-video {
             max-width: 100%; max-height: 100%;
             border: 2px solid #8a2be2; border-radius: 10px;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
         }
-
-        /* Tombol Navigasi (Next/Prev) */
         .prev, .next {
             cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px;
             margin-top: -50px; color: white; font-weight: bold; font-size: 30px;
-            transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none;
-            background-color: rgba(0,0,0,0.5);
+            transition: 0.6s ease; background-color: rgba(0,0,0,0.5); user-select: none;
         }
         .next { right: -60px; border-radius: 3px 0 0 3px; }
-        .prev { left: -60px; border-radius: 3px 0 0 3px; }
+        .prev { left: -60px; border-radius: 0 3px 3px 0; }
         .prev:hover, .next:hover { background-color: #8a2be2; }
-
         .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
         .modal-caption { margin-top: 15px; color: #fff; font-size: 18px; text-align: center; }
         .numbertext { color: #f2f2f2; font-size: 12px; position: absolute; top: -25px; left: 0; }
 
-        @media screen and (max-width: 800px) {
-            .hero-layout { flex-direction: column-reverse; }
-            .left-menu { width: 100%; border-right: none; }
+        @media screen and (max-width: 1000px) {
+            .hero-layout { flex-direction: column; }
+            .left-menu, .right-content { width: 100%; border: none; padding: 0; }
             .modal-media-container { width: 95%; height: 300px; }
-            .prev { left: 0; } .next { right: 0; } /* Tombol nav masuk ke dalam di HP */
+            .prev { left: 0; } .next { right: 0; }
         }
     </style>
 </head>
@@ -154,6 +176,7 @@
 
     <section class="hero">
         <div class="hero-layout">
+            
             <div class="left-menu">
                 <a href="#store" class="menu-btn store-btn">1. Exora Store (Produk) <span>🛒</span></a>
                 <a href="#showcase" class="menu-btn">2. Product Showcase <span>🎥</span></a>
@@ -161,18 +184,68 @@
                 <a href="https://discord.gg/FEC5JbvRM2" target="_blank" class="menu-btn discord-btn">4. Join Discord <span>✈</span></a>
                 <a href="#developers" class="menu-btn">5. Developers <span>★</span></a>
             </div>
+
             <div class="center-content">
                 <h1>Welcome to <span>EXORA</span></h1>
                 <div class="history-box">
                     <h3>📜 Sejarah Singkat</h3>
-                    <p>Exora Hub didirikan pertama kali pada tahun 2024 dengan nama DJ HUB.Setelah perjalanan panjang di 2025
-                        Pada akhirnya kami memutuskan Rebranding menjadi Exora Hub pada Januari 2026.
-                        Kami menyediakan jasa scripting, building, UI design dan berbagai product siap pakai seperti mobil
-                        dengan motto #WEHEREANDWEREADY yang artinya kami disini dan kami siap membantu developer kecil berkembang bersama kami
-                        .</p>
+                    <p>
+                        Exora Hub didirikan pertama kali pada tahun 2024 dengan nama DJ HUB.
+                    Setelah Melewati perjuangan panjang ditahun 2025, akhirnya kami memutuskan rebranding pada januari 2026
+                    dengan nama awal DJ HUB menjadi Exora Hub yang menjual jasa dan product untuk game anda
+                    jasa yang kami tawarkan adalah jasa script,jasa design ui,jasa building
+                    dan berbagai product mobil slot.
+                    kami memiliki motto #WEHEREANDWEREADY dengan arti kami disini dan siap membantu developer untuk berkembang. 
+                    </p>
+                    <p>
+                        Tujuan kami adalah, menyediakan jasa atau product siap pakai untuk memudahkan developer,
+                        dalam mengembangkan gamenya.
+                        Dan agar developer tidak lelah membuat system yang sesuai dengan gamenya
+                        kami membuat jasa custom script agar mempermudah 
+                    </p>
                 </div>
             </div>
-        </div>
+
+            <div class="right-content">
+                <div class="ongoing-header">
+                    <span>Ongoing Projects</span>
+                    <span style="font-size: 20px;">...</span>
+                </div>
+
+                <div class="ongoing-card">
+                    <img src="https://via.placeholder.com/400x250?text=Toyota+Celica+WIP" class="og-img">
+                    <div class="og-info">
+                        <div class="og-tags">
+                            <div class="tag tag-green"></div>
+                            <div class="tag tag-yellow"></div>
+                            <div class="tag tag-orange"></div>
+                            <div class="tag tag-pink"></div>
+                        </div>
+                        <div class="og-title">1995 Toyota Celica GT-Four ST205 Gr. A</div>
+                        <div class="og-footer">
+                            <div class="og-icon">📄 5</div>
+                            <div class="og-icon">📎 2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ongoing-card">
+                    <img src="https://via.placeholder.com/400x250?text=Corolla+Altis+WIP" class="og-img">
+                    <div class="og-info">
+                        <div class="og-tags">
+                            <div class="tag tag-yellow"></div>
+                            <div class="tag tag-orange"></div>
+                        </div>
+                        <div class="og-title">2003 Toyota Corolla Altis</div>
+                        <div class="og-footer">
+                            <div class="og-icon">📄 7</div>
+                            <div class="og-icon">📎 4</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
     </section>
 
     <section class="section-box bg-dark" id="store">
@@ -186,7 +259,7 @@
                     <div class="card-desc">Full details interior & exterior.</div>
                     <div class="price-row">
                         <div class="price">Rp 9k</div>
-                        <a href="#" class="buy-btn">Beli</a>
+                        <a href="https://discord.gg/FEC5JbvRM2" target="_blank" class="buy-btn">Beli</a>
                     </div>
                 </div>
             </div>
@@ -196,8 +269,8 @@
                     <div class="card-title">Basic Chassis</div>
                     <div class="card-desc">Script mobil fisik realistis.</div>
                     <div class="price-row">
-                        <div class="price">Free</div>
-                        <a href="#" class="buy-btn">Ambil</a>
+                        <div class="price">9k</div>
+                        <a href="https://discord.gg/FEC5JbvRM2" target="_blank" class="buy-btn">Ambil</a>
                     </div>
                 </div>
             </div>
@@ -208,15 +281,13 @@
         <h2>Product Showcase</h2>
         <p>Lihat detail produk kami (Klik untuk melihat galeri foto/video).</p>
         <div class="grid-container">
-            
             <div class="card" onclick="openGallery('calya_showcase')">
                 <div style="padding: 20px; text-align:center;">
                     <h3 style="color:#8a2be2">📸 Toyota Calya Gallery</h3>
-                    <p style="color:#aaa">Klik untuk lihat 5+ Foto & Video detail mobil.</p>
+                    <p style="color:#aaa">Klik untuk lihat 5+ Foto & Video.</p>
                     <div class="hint">Buka Galeri</div>
                 </div>
             </div>
-
              <div class="card" onclick="openGallery('map_showcase')">
                 <div style="padding: 20px; text-align:center;">
                     <h3 style="color:#00d4ff">🏰 Map Details</h3>
@@ -224,7 +295,6 @@
                     <div class="hint">Buka Galeri</div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -251,80 +321,55 @@
     <section class="section-box" id="developers">
         <h2>Meet Our Developers</h2>
         <div class="dev-grid">
-            <div class="dev-card"><div class="dev-avatar">R</div><h3>Rau Lead</h3><p>Founder</p></div>
-            <div class="dev-card"><div class="dev-avatar">P</div><h3>Perkedel</h3><p>Co-Founder</p></div>
+            <div class="dev-card"><div class="dev-avatar">R</div><h3>Perkedel</h3><p>Founder</p></div>
+            <div class="dev-card"><div class="dev-avatar">P</div><h3>RauNicilo</h3><p>Dev</p></div>
         </div>
     </section>
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        
         <div class="modal-media-container">
             <div class="numbertext" id="slide-counter">1 / 3</div>
-            
             <img class="modal-content" id="img-display" style="display:none;">
-            
             <iframe class="modal-video" id="vid-display" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none; width:100%; height:100%"></iframe>
-
             <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
             <a class="next" onclick="changeSlide(1)">&#10095;</a>
         </div>
-        
         <div class="modal-caption" id="caption"></div>
     </div>
 
     <script>
-        // --- DATASET FOTO/VIDEO ---
-        // ISINYA DISINI BANG! GANTI LINKNYA SESUAI KEBUTUHAN
         const galleries = {
-            
-            // 1. Galeri Toyota Calya
             'calya_showcase': [
                 { type: 'image', src: 'ToyotaCalya.png', text: 'Tampilan Depan Calya' },
                 { type: 'image', src: 'https://via.placeholder.com/800x450?text=Calya+Samping', text: 'Tampilan Samping' },
-                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Calya+Belakang', text: 'Tampilan Belakang' },
-                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Calya+Interior', text: 'Detail Interior Dashboard' },
                 { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', text: 'Video Review Singkat' }
             ],
-
-            // 2. Galeri Map
             'map_showcase': [
-                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Overview', text: 'Pemandangan Map dari Atas' },
-                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Street', text: 'Detail Jalanan' },
-                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Building', text: 'Gedung Utama' }
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Overview', text: 'Pemandangan Map' },
+                { type: 'image', src: 'https://via.placeholder.com/800x450?text=Map+Street', text: 'Detail Jalanan' }
             ],
-
-            // 3. Portfolio Scripting
             'portfolio_script': [
-                { type: 'video', src: 'Portofolio.mp4', text: 'Sistem Admin V2' },
-                { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', text: 'Sistem Toko' }
+                { type: 'video', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', text: 'Sistem Admin V2' }
             ],
-
-            // 4. Portfolio Building
             'portfolio_build': [
-                { type: 'image', src: 'image.png', text: 'Realistic Forest Map' },
-                { type: 'image', src: 'https://via.placeholder.com/800x450?text=City+Map', text: 'Cyberpunk City' }
+                { type: 'image', src: 'image.png', text: 'Realistic Forest Map' }
             ]
         };
 
-        // --- LOGIKA PROGRAM (JANGAN DIUBAH KECUALI PAHAM) ---
         let currentGalleryID = '';
         let currentIndex = 0;
 
         function openGallery(galleryID) {
             if (!galleries[galleryID]) return alert("Galeri belum diisi!");
-            
             currentGalleryID = galleryID;
-            currentIndex = 0; // Mulai dari foto pertama
-            
+            currentIndex = 0;
             document.getElementById("myModal").style.display = "flex";
             showSlide(currentIndex);
         }
 
         function showSlide(index) {
             const mediaList = galleries[currentGalleryID];
-            
-            // Loop slide jika mentok
             if (index >= mediaList.length) currentIndex = 0;
             if (index < 0) currentIndex = mediaList.length - 1;
 
@@ -334,5 +379,30 @@
             const caption = document.getElementById("caption");
             const counter = document.getElementById("slide-counter");
 
-            // Reset Tampilan
-            imgView.style.display = "none
+            imgView.style.display = "none";
+            vidView.style.display = "none";
+            vidView.src = "";
+
+            if (item.type === 'video') {
+                vidView.style.display = "block";
+                vidView.src = item.src;
+            } else {
+                imgView.style.display = "block";
+                imgView.src = item.src;
+            }
+            caption.innerHTML = item.text;
+            counter.innerHTML = (currentIndex + 1) + " / " + mediaList.length;
+        }
+
+        function changeSlide(n) { currentIndex += n; showSlide(currentIndex); }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById("vid-display").src = "";
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) closeModal();
+        }
+    </script>
+
+</body>
+</html>
