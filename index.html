@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exora Hub | Professional Team</title>
+    <title>Exora Hub | Official Website</title>
     <style>
         /* --- CSS RESET & BASE --- */
         html { scroll-behavior: smooth; }
@@ -14,7 +14,7 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGASI ATAS (LOGO SAJA) --- */
+        /* --- NAVIGASI --- */
         nav {
             padding: 20px 50px;
             background: rgba(15, 15, 26, 0.95);
@@ -29,186 +29,57 @@
 
         /* --- HERO SECTION (TAMPILAN UTAMA) --- */
         .hero {
-            min-height: 100vh; /* Full layar */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
             background: radial-gradient(circle at center, #1a1a3d 0%, #0f0f1a 80%);
-            padding-top: 80px; /* Jarak dari nav */
+            padding-top: 80px;
         }
 
-        /* Container Pembagi Layout (Kiri & Tengah) */
         .hero-layout {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            gap: 50px;
-            align-items: center;
+            display: flex; width: 90%; max-width: 1200px; gap: 50px; align-items: center;
         }
 
-        /* BAGIAN KIRI: MENU */
+        /* MENU KIRI */
         .left-menu {
-            flex: 1; /* Lebar 1 bagian */
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            border-right: 1px solid #2a2a40; /* Garis pemisah */
-            padding-right: 30px;
+            flex: 1; display: flex; flex-direction: column; gap: 20px;
+            border-right: 1px solid #2a2a40; padding-right: 30px;
         }
 
         .menu-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            padding: 20px;
-            text-decoration: none;
-            border-left: 4px solid #8a2be2; /* Garis ungu di kiri tombol */
-            font-weight: bold;
-            font-size: 16px;
-            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.05); color: white; padding: 20px;
+            text-decoration: none; border-left: 4px solid #8a2be2;
+            font-weight: bold; font-size: 16px; transition: 0.3s;
             display: flex; align-items: center; justify-content: space-between;
         }
+        .menu-btn:hover { background: linear-gradient(90deg, #8a2be2, transparent); padding-left: 30px; }
 
-        .menu-btn:hover {
-            background: linear-gradient(90deg, #8a2be2, transparent);
-            padding-left: 30px; /* Efek geser */
-        }
-
+        /* Variasi Warna Tombol */
+        .store-btn { border-color: #00d4ff; } /* Warna Biru Cyan untuk Toko */
+        .store-btn:hover { background: linear-gradient(90deg, #00d4ff, transparent); }
+        
         .discord-btn { border-color: #5865F2; } /* Warna Discord */
         .discord-btn:hover { background: linear-gradient(90deg, #5865F2, transparent); }
 
-        /* BAGIAN TENGAH: SEJARAH */
-        .center-content {
-            flex: 2; /* Lebar 2 bagian (lebih luas) */
-        }
-
-        .center-content h1 {
-            font-size: 50px; margin-bottom: 10px; line-height: 1.2;
-        }
+        /* KONTEN TENGAH (SEJARAH) */
+        .center-content { flex: 2; }
+        .center-content h1 { font-size: 50px; margin-bottom: 10px; line-height: 1.2; }
         .center-content span { color: #8a2be2; }
         
         .history-box {
-            background: rgba(22, 22, 37, 0.8);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #2a2a40;
-            margin-top: 20px;
+            background: rgba(22, 22, 37, 0.8); padding: 30px; border-radius: 15px;
+            border: 1px solid #2a2a40; margin-top: 20px;
         }
         .history-box h3 { color: #00d4ff; margin-top: 0; }
         .history-box p { color: #b0b0c0; line-height: 1.6; }
 
-        /* --- PROJECTS SECTION --- */
-        .projects { padding: 100px 20px; text-align: center; border-top: 1px solid #2a2a40; }
-        .project-grid {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 40px;
-        }
-        .card {
-            background: #161625; padding: 30px; border-radius: 15px;
-            border: 1px solid #2a2a40; width: 280px; transition: 0.3s; cursor: pointer;
-        }
-        .card:hover { border-color: #00d4ff; transform: translateY(-10px); }
-        .card h3 { color: #8a2be2; }
-        .hint { font-size: 12px; color: #555; margin-top: 15px; }
-
-        /* --- DEVELOPERS SECTION (BARU) --- */
-        .developers {
-            padding: 80px 20px;
-            text-align: center;
-            background: #0a0a12;
-        }
-        .dev-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px;}
-        .dev-card {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            padding: 20px; width: 200px; border-radius: 10px; border: 1px solid #333;
-        }
-        .dev-avatar {
-            width: 80px; height: 80px; background: #8a2be2; border-radius: 50%; margin: 0 auto 15px;
-            display: flex; align-items: center; justify-content: center; font-size: 30px; font-weight: bold;
-        }
-
-        /* --- POPUP MODAL --- */
-        .modal {
-            display: none; position: fixed; z-index: 9999;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center; align-items: center; flex-direction: column;
-        }
-        .modal-content { max-width: 90%; max-height: 80%; border: 2px solid #8a2be2; border-radius: 10px;}
-        .modal-video { width: 80%; height: 450px; border: 2px solid #8a2be2; border-radius: 10px; display: none; }
-        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
-        .modal-caption { margin-top: 15px; color: #fff; font-size: 18px; }
-
-        /* RESPONSIVE (HP) */
-        @media screen and (max-width: 800px) {
-            .hero-layout { flex-direction: column-reverse; /* Menu pindah ke bawah di HP */ }
-            .left-menu { width: 100%; border-right: none; }
-            .center-content h1 { font-size: 32px; text-align: center; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">EXORA HUB</div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-layout">
-            
-            <div class="left-menu">
-                <a href="#projects" class="menu-btn">
-                    1. Full Portfolio (Foto & Video) <span>➜</span>
-                </a>
-                <a href="https://discord.gg/CONTOH-LINK" target="_blank" class="menu-btn discord-btn">
-                    2. Join Discord Server <span>✈</span>
-                </a>
-                <a href="#developers" class="menu-btn">
-                    3. Developer Team <span>★</span>
-                </a>
-            </div>
-
-            <div class="center-content">
-                <h1>Welcome to <span>EXORA</span></h1>
-                
-                <div class="history-box">
-                    <h3>📜 Sejarah Singkat</h3>
-                    <p>
-                        Exora Hub didirikan ditahun 2024 dengan nama DJ HUB.
-                    Setelah melewati perjuangan 2025 maka DJ HUB Rebranding menjadi exora hub.
-                        difokuskan menjual jasa script dan mobil dengan harga yang murah
-                        kami siap membantu developer game roblox kecil agar bisa berkembang dengan product yang kami tawarkan
-                        dengan motto #WEHEREANDWEREADY yang artinya kami disini dan kami siap membantu developer game roblox
-                        
-                    </p>
-                    <p>
-                        Tujuan kami adalah, menyediakan jasa atau product siap pakai untuk customer.
-                        product yang kami jual berupa mobil,motor,script. Untuk menunjang developer game roblox
-                        kami menyediakan jasa scripting dan build untuk memudahkan developer roblox
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <h2>Portfolio Lengkap</h2>
-        <p>Kumpulan hasil karya Scripting, Building, dan UI kami.</p>
+        /* --- STORE / PRODUCT SECTION (BARU) --- */
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .products { padding: 80px 20px; background: #0c0c14; border-top: 1px solid #222; }
         
-        <div class="project-grid">
-            <div class="card" onclick="openModal('Portofolio.mp4', 'Scripting System Showcase', 'video')">
-                <h3>Roblox Scripting</h3>
-                <p>Klik untuk menonton video showcase.</p>
-                <div class="hint">▶ Play Video</div>
-            </div>
-            <div class="card" onclick="openModal('image.png', 'Map Realistic', 'image')">
-                <h3>Map Building</h3>
-                <p>Desain map realistis high-detail.</p>
-                <div class="hint">🖼 Lihat Foto</div>
-            </div>
-            <div class="card" onclick="openModal('https://via.placeholder.com/800x450?text=UI+Portfolio', 'UI Design Modern', 'image')">
-                <h3>UI Design</h3>
-                <p>Tampilan antarmuka game modern.</p>
-                <div class="hint">🖼 Lihat Foto</div>
-            </div>
-        </div>
-    </section>
+        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
+        
+        .product-card {
+            background: #161625; width: 280px; border-radius: 15px; overflow: hidden;
+            border: 1px solid #2a2a40; transition: 0.3s; position: relative;
+        }
+        .product-card:hover { transform: translateY(-5px); border-color:
